@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iceberg Parallax</title>
+    <link rel="stylesheet" href="iceberg.css">
+</head>
+<body>
+<section>
+    <img src="bg.webp" id="mountain-bg">
+    <img src="1.webp" id="bg">
+    <img src="2.webp" id="bg2">
+    <img src="3.webp" id="bg3">
+    <img src="4.webp" id="bg4">
+    <img src="5.webp" id="bg5">
+    <img src="6.webp" id="bg6">
+    <img src="7.webp" id="bg7">
+    <img src="8.webp" id="bg8">
+    <img src="9.webp" id="bg9">
+    <img src="10.webp" id="bg10">
+    <img src="11.webp" id="bg11">
+    <img src="12.webp" id="bg12">
+    <img src="13.webp" id="bg13">
+    <img src="14.webp" id="bg14">
+    <img src="15.webp" id="bg15">
+    <img src="16.webp" id="bg16">
+    <img src="17.webp" id="bg17">
+    <img src="18.webp" id="bg18">
+    <img src="19.webp" id="bg19">
+    <img src="20.webp" id="bg20">
+    <img src="21.webp" id="bg21">
+    <img src="22.webp" id="bg22">
+    <img src="23.webp" id="bg23">
+    <img src="24.webp" id="bg24">
+    <img src="25.webp" id="bg25">
+    <img src="26.webp" id="bg26">
+    <img src="27.webp" id="bg27">
+    <img src="28.webp" id="bg28">
+    <img src="29.webp" id="bg29">
+    <img src="30.webp" id="bg30">
+    <img src="31.webp" id="bg31">
+    <img src="32.webp" id="bg32">
+    <img src="33.webp" id="bg33">
+    <img src="34.webp" id="bg34">
+    <img src="35.webp" id="bg35">
+    <img src="36.webp" id="bg36">
+    <img src="37.webp" id="bg37">
+    <img src="38.webp" id="bg38">
+    <img src="39.webp" id="bg39">
+    <img src="40.webp" id="bg40">
+    <img src="41.webp" id="bg41">
+    <img src="42.webp" id="bg42">
+    <img src="43.webp" id="bg43">
+    <img src="44.webp" id="bg44">
+    <img src="45.webp" id="bg45">
+    <img src="46.webp" id="bg46">
+    <img src="47.webp" id="bg47">
+    <img src="48.webp" id="bg48">
+    <img src="49.webp" id="bg49">
+    <img src="50.webp" id="bg50">
+    <img src="51.webp" id="bg51">
+    <img src="52.webp" id="bg52">
+    <img src="53.webp" id="bg53">
+    <img src="54.webp" id="bg54">
+    <img src="55.webp" id="bg55">
+    <img src="56.webp" id="bg56">
+    <img src="57.webp" id="bg57">
+    <img src="58.webp" id="bg58">
+    <img src="59.webp" id="bg59">
+    <img src="60.webp" id="bg60">
+    <h2 id="text">Cloudsens</h2>
+</section>
+
+
+<script type="text/javascript">
+let images = [
+    document.getElementById("bg"),
+    document.getElementById("bg2"),
+    document.getElementById("bg3"),
+    document.getElementById("bg4"),
+    document.getElementById("bg5"),
+    document.getElementById("bg6"),
+    document.getElementById("bg7"),
+    document.getElementById("bg8"),
+    document.getElementById("bg9"),
+    document.getElementById("bg10"),
+    document.getElementById("bg11"),
+    document.getElementById("bg12"),
+    document.getElementById("bg13"),
+    document.getElementById("bg14"),
+    document.getElementById("bg15"),
+    document.getElementById("bg16"),
+    document.getElementById("bg17"),
+    document.getElementById("bg18"),
+    document.getElementById("bg19"),
+    document.getElementById("bg20"),
+    document.getElementById("bg21"),
+    document.getElementById("bg22"),
+    document.getElementById("bg23"),
+    document.getElementById("bg24"),
+    document.getElementById("bg25"),
+    document.getElementById("bg26"),
+    document.getElementById("bg27"),
+    document.getElementById("bg28"),
+    document.getElementById("bg29"),
+    document.getElementById("bg30"),
+    document.getElementById("bg31"),
+    document.getElementById("bg32"),
+    document.getElementById("bg33"),
+    document.getElementById("bg34"),
+    document.getElementById("bg35"),
+    document.getElementById("bg36"),
+    document.getElementById("bg37"),
+    document.getElementById("bg38"),
+    document.getElementById("bg39"),
+    document.getElementById("bg40"),
+    document.getElementById("bg41"),
+    document.getElementById("bg42"),
+    document.getElementById("bg43"),
+    document.getElementById("bg44"),
+    document.getElementById("bg45"),
+    document.getElementById("bg46"),
+    document.getElementById("bg47"),
+    document.getElementById("bg48"),
+    document.getElementById("bg49"),
+    document.getElementById("bg50"),
+    document.getElementById("bg51"),
+    document.getElementById("bg52"),
+    document.getElementById("bg53"),
+    document.getElementById("bg54"),
+    document.getElementById("bg55"),
+    document.getElementById("bg56"),
+    document.getElementById("bg57"),
+    document.getElementById("bg58"),
+    document.getElementById("bg59"),
+    document.getElementById("bg60")
+];
+
+
+let mountainBg = document.getElementById("mountain-bg");
+
+// Total scrollable height
+let maxScroll = document.body.scrollHeight - window.innerHeight;
+
+// Calculate the scroll step per image
+let scrollStep = maxScroll / (images.length - 1);
+
+window.addEventListener('scroll', function() {
+    let scrollPos = window.scrollY;
+
+    // Determine the current image index based on scroll position
+    let index = Math.floor(scrollPos / scrollStep);
+
+    // Ensure index is within bounds
+    index = Math.min(index, images.length - 1);
+
+    // Hide all images and show the current one
+    images.forEach((image, i) => {
+        image.style.opacity = i === index ? 1 : 0;
+    });
+
+    // Parallax effect for the mountain background
+    let mountainOffset = scrollPos * 0.05; // Adjust this factor for desired speed
+    mountainBg.style.transform = `translateY(-${mountainOffset}px)`;
+});
+
+
+
+
+</script>
+</body>
+</html>
